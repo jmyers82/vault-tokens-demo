@@ -11,6 +11,7 @@ resource "hcp_vault_cluster" "hashiconf22" {
   cluster_id = "vault-cluster"
   hvn_id     = hcp_hvn.hashiconf_hvn.hvn_id
   tier       = "dev"
+  public_endpoint = true
 
   lifecycle {
     prevent_destroy = true

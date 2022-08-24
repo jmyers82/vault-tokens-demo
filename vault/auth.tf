@@ -1,4 +1,4 @@
 provider "hcp" {
-  client_id     = "service-principal-key-client-id"
-  client_secret = "service-principal-key-client-secret"
+  client_id     = var.hcp_client_id
+  client_secret = var.hcp_client_secret
 }
