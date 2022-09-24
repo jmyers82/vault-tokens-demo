@@ -1,10 +1,10 @@
-resource "vault_database_secret_backend_connection" "postgres" {
+resource "vault_database_secret_backend_connection" "mssql" {
   backend       = vault_mount.db.path
   name          = "hashisql"
 #   allowed_roles = ["dev", "prod"]
 
   mssql {
-    connection_url = "sqlserver://sqladmin:${var.sqladminpwd}@hashi-sqlserver.database.windows.net:1433/hashi-credtest"
+    connection_url = "sqlserver://{{username}}:{{password}}@hashi-sqlserver.database.windows.net:1433/hashi-credtest"
     username = "sqladmin"
     password = var.sqladminpwd
     contained_db = true
