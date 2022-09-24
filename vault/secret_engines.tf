@@ -1,7 +1,7 @@
 resource "vault_aws_secret_backend" "aws" {
   provider                  = vault.cloud
-  access_key                = "AKIATJPOA3YCMVBUMEPW"
-  secret_key                = "AWS secret key"
+  access_key                = var.aws_access_key
+  secret_key                = var.aws_secret_key
   region                    = "us-west-1"
   default_lease_ttl_seconds = 14400
   max_lease_ttl_seconds     = 28800
