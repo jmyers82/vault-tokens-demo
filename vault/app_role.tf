@@ -34,6 +34,7 @@ resource "vault_approle_auth_backend_role" "app_role_azure_auth_role" {
 
 
 resource "vault_policy" "app_role_ado_policy" {
+  for_each = local.subscriptions
   provider = vault.cloud
   name     = "azure_read_${each.value.sub_id}"
 
