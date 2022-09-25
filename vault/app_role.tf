@@ -27,6 +27,10 @@ path "auth/approle/ado-role-acquire-tokens" {
   capabilities = ["read"]
 }
 
+path "azure/creds/${each.value.sub_id}" {
+  capabilities = ["read"]
+}
+
 path "auth/token/create" {
   capabilities = ["create","update"]
 }
