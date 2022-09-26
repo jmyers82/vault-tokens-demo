@@ -2,7 +2,7 @@
 ### THIS MODULE IS OWNED BY THE CLOUD PLATFORM TEAM ###
 #######################################################
 module "vaultprovider" {
-  source          = "app.terraform.io/wy-eoda/vaultprovider/azurerm"
+  source          = "app.terraform.io/hashiconf22/vaultprovider/azurerm"
   version         = "~>v1.0"
   vault_token     = var.vault_token
   subscription_id = var.subscription_id
