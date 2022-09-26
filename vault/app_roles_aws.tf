@@ -34,7 +34,7 @@ resource "vault_approle_auth_backend_role" "aws_secrets" {
 resource "vault_policy" "aws_create_auth" {
   for_each = local.accounts
   provider = vault.cloud
-  name     = "aws_create_creds_${each.value.sub_id}"
+  name     = "aws_create_creds_${each.value.account_id}"
 
   policy = <<EOT
 path "aws/creds/*" {
