@@ -31,7 +31,7 @@ resource "vault_approle_auth_backend_role" "aws_secrets" {
   token_policies = ["aws_create_creds_${each.value.account_id}"] #"aws-create", "aws-update"]
 }
 
-resource "vault_policy" "azure_create_auth" {
+resource "vault_policy" "aws_create_auth" {
   for_each = local.accounts
   provider = vault.cloud
   name     = "aws_create_creds_${each.value.sub_id}"
