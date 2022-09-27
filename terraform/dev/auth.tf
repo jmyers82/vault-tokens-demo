@@ -6,7 +6,9 @@ module "vaultprovider" {
   version         = "~>v1.0"
   vault_token     = var.vault_token
   subscription_id = var.subscription_id
-  validate_creds  = true
+  validate_creds  = false
+  num_seconds_between_tests = 20
+  num_sequential_successes = 3
 }
 
 

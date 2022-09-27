@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "terraform_demo_storage" {
-  name                            = "st${var.map_environment.app_name}${var.map_environment.env_type}"
+  name                            = "sthashidemo${var.map_environment.env_type}"
   resource_group_name             = azurerm_resource_group.hashi_terraform_demo.name
   location                        = var.map_storage_account.location
   account_tier                    = var.map_storage_account.account_tier
