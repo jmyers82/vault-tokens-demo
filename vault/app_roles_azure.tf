@@ -14,7 +14,7 @@ resource "vault_policy" "app_role_ado_policy" {
 
   policy = <<EOT
 
-path "azure/creds/${each.value.sub_id}" {
+path "azure/creds/${each.value.sub_id}_contributor" {
   capabilities = ["read"]
 }
 
