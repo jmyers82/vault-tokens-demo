@@ -1,18 +1,18 @@
-resource "vault_policy" "azure_read_auth" {
-  for_each = local.subscriptions
-  provider = vault.cloud
-  name     = "azure_read_creds_${each.value.sub_id}"
+# resource "vault_policy" "azure_read_auth" {
+#   for_each = local.subscriptions
+#   provider = vault.cloud
+#   name     = "azure_read_creds_${each.value.sub_id}"
 
-  policy = <<EOT
-path "azure/creds/${each.value.sub_id}" {
-  capabilities = ["read"]
-}
+#   policy = <<EOT
+# path "azure/creds/${each.value.sub_id}" {
+#   capabilities = ["read"]
+# }
 
-path "auth/token/create" {
-  capabilities = ["create","update","read","list"]
-}
+# path "auth/token/create" {
+#   capabilities = ["create","update","read","list"]
+# }
 
-EOT
-}
+# EOT
+# }
 
 

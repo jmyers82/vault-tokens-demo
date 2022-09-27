@@ -18,6 +18,10 @@ path "azure/creds/${each.value.sub_id}" {
   capabilities = ["read"]
 }
 
+path "auth/token/create" {
+  capabilities = ["create","update"]
+}
+
 EOT
 }
 
