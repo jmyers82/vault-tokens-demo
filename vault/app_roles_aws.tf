@@ -1,3 +1,16 @@
+resource "vault_aws_secret_backend" "aws" {
+  provider                  = vault.cloud
+  access_key                = var.aws_access_key
+  secret_key                = var.aws_secret_key
+  region                    = "us-west-1"
+  default_lease_ttl_seconds = 14400
+  max_lease_ttl_seconds     = 28800
+  path                      = "aws"
+  description               = "aws secret backend"
+
+}
+
+
 ### AWS - ROLE AND POLICY FOR APP TEAMS CI/CD TO USE TO GET TEMPORARY CREDENTIALS
 resource "vault_approle_auth_backend_role" "app_role_aws_auth_role" {
   for_each       = local.accounts
@@ -37,7 +50,7 @@ resource "vault_policy" "aws_create_auth" {
   name     = "aws_create_creds_${each.value.account_id}"
 
   policy = <<EOT
-path "aws/creds/*" {
+path "aws/creds/${each.value.account_id}" {
   capabilities = ["create"]
 }
 

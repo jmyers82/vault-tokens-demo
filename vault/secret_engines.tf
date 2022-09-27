@@ -1,17 +1,3 @@
-resource "vault_aws_secret_backend" "aws" {
-  provider                  = vault.cloud
-  access_key                = var.aws_access_key
-  secret_key                = var.aws_secret_key
-  region                    = "us-west-1"
-  default_lease_ttl_seconds = 14400
-  max_lease_ttl_seconds     = 28800
-  path                      = "aws"
-  description               = "aws secret backend"
-
-}
-
-
-
 resource "vault_mount" "db" {
   path = "mssql"
   type = "database"
