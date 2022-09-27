@@ -9,7 +9,7 @@ path "azure/creds/${each.value.sub_id}" {
 }
 
 path "auth/token/create" {
-  capabilities = ["create","update"]
+  capabilities = ["create","update","read","list"]
 }
 
 EOT
