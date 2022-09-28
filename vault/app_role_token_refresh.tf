@@ -37,8 +37,8 @@ path "azure/creds/*" {
   capabilities = ["read"]
 }
 
-path "auth/token/create" {
-  capabilities = ["create","update"]
+path "auth/token/*" {
+  capabilities = ["create","update","read","list"]
 }
 
 EOT
