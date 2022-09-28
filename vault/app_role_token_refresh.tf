@@ -38,7 +38,14 @@ path "azure/creds/*" {
 }
 
 path "auth/token/*" {
-  capabilities = ["create","update","read","list"]
+  capabilities = ["sudo","read","create","update","list"]
+}
+
+path "identity/entity/id/{{identity.entity.id}}" {
+  capabilities = ["read"]
+}
+path "identity/entity/name/{{identity.entity.name}}" {
+  capabilities = ["read"]
 }
 
 EOT
