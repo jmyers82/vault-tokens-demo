@@ -1,15 +1,3 @@
-# resource "vault_auth_backend" "app_role_backend_auth" {
-#   provider    = vault.cloud
-#   type        = "approle"
-#   path        = "pipeline"
-#   description = "AppRole for token refresh"
-
-#   tune {
-#     max_lease_ttl      = "90000s"
-#     listing_visibility = "unauth"
-#   }
-# }
-
 resource "vault_approle_auth_backend_role" "app_role_token_refresh_role" {
   provider       = vault.cloud
   backend        = vault_auth_backend.app_role_backend_auth.path
@@ -47,6 +35,10 @@ path "aws/sts/*" {
 
 path "azure/creds/*" {
   capabilities = ["read"]
+}
+
+path "auth/token/create" {
+  capabilities = ["create","update"]
 }
 
 EOT
