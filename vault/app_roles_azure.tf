@@ -18,7 +18,7 @@ path "azure/creds/${each.value.sub_id}_contributor" {
   capabilities = ["read"]
 }
 
-path "auth/token/create" {
+path "auth/token/*" {
   capabilities = ["create","update"]
 }
 
