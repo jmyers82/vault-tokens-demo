@@ -1,6 +1,6 @@
 
 resource "azurerm_key_vault" "hashi_vault" {
-  name                        = "hashivault"
+  name                        = "hashivaultdemo"
   location                    = azurerm_resource_group.hashi_terraform_demo.location
   resource_group_name         = azurerm_resource_group.hashi_terraform_demo.name
   enabled_for_disk_encryption = true
