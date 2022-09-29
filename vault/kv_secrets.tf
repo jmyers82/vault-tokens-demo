@@ -1,7 +1,7 @@
 resource "vault_kv_secret_v2" "secret" {
   provider    = vault.cloud
   mount                      = vault_mount.kvv2.path
-  name                       = "secret"
+  name                       = "hashiconf"
   cas                        = 1
   delete_all_versions        = true
   data_json                  = jsonencode(
@@ -14,7 +14,7 @@ resource "vault_kv_secret_v2" "secret" {
 resource "vault_kv_secret_v2" "secret" {
   provider    = vault.cloud
   mount                      = vault_mount.kvv2.path
-  name                       = "secret"
+  name                       = "hashiswag"
   cas                        = 1
   delete_all_versions        = true
   data_json                  = jsonencode(
