@@ -12,7 +12,11 @@ module "vaultprovider" {
 }
 
 provider "azurerm" {
-  features {}
+  features {
+        key_vault {
+      purge_soft_delete_on_destroy = true
+    }
+  }
   client_id       = module.vaultprovider.client_id
   client_secret   = module.vaultprovider.client_secret
   subscription_id = var.subscription_id
