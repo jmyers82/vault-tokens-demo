@@ -1,9 +1,7 @@
-resource "vault_mount" "db" {
-  path = "mssql"
-  type = "database"
-}
+
 
 resource "vault_mount" "kvv2" {
+  provider    = vault.cloud
   path        = "kvv2"
   type        = "kv"
   options     = { version = "2" }
