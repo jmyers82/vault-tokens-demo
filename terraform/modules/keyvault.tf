@@ -15,6 +15,6 @@ resource "azurerm_key_vault" "hashi_vault" {
 
 resource "azurerm_key_vault_secret" "example" {
   name         = "hashiconf-secret"
-  value        = "hashiconf-rocks!"
+  value        = "${data.vault_kv_secret_v2.secret_hashiconf.data["Name"]}"
   key_vault_id = azurerm_key_vault.hashi_vault.id
 }

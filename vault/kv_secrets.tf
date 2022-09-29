@@ -1,3 +1,11 @@
+resource "vault_mount" "kvv2" {
+  provider    = vault.cloud
+  path        = "kvv2"
+  type        = "kv"
+  options     = { version = "2" }
+  description = "KV Version 2 secret engine mount"
+}
+
 resource "vault_kv_secret_v2" "secret_conf" {
   provider    = vault.cloud
   mount                      = vault_mount.kvv2.path
