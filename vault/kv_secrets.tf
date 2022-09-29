@@ -27,7 +27,6 @@ resource "vault_kv_secret_v2" "secret_swag" {
 
 #### POLICY to READ secret
 resource "vault_policy" "kv_read_policy" {
-  for_each = local.subscriptions
   provider = vault.cloud
   name     = "kv_read_secrets"
 
