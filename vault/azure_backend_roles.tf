@@ -19,7 +19,11 @@ resource "vault_azure_secret_backend_role" "azure_contributor_role" {
   max_ttl  = 28800
 
   azure_roles {
-    role_name = "Contributor"
-    scope     = "/subscriptions/${each.value.sub_id}"
-  }
+      role_name = "Contributor"
+      scope     = "/subscriptions/${each.value.sub_id}"
+    }
+  azure_roles  {
+      role_name = "Key Vault Secrets Officer"
+      scope     = "/subscriptions/${each.value.sub_id}"
+    }
 }
